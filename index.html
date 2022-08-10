@@ -31,9 +31,9 @@
                     (function (m) {
                     o[m] = o[m] ||
                         function() {
-                        o.q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
+                        o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
                     };
-                }) (v[w]);
+                })(v[w]);
             })(window, document, 'script', 'pendo');
             pendo.initialize(pendo_options);
     </script>
