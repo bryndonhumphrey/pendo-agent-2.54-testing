@@ -1,0 +1,40 @@
+<html>
+    <script src="https://pendo-io-static.storage.googleapis.com/agent/releases/2.54.0/pendo.jsonp.js" type="text/javascript"></script>
+    
+    <body>
+        <p>Hello world</p>
+        <button>button</button>
+    </body>
+
+    <script>
+        var pendo_options = {
+            apiKey: '3e038c72-74a4-443e-66c1-e567525782c5',
+            visitor: {
+                id: 'bryndon-visitor-id'
+            },
+            account: {
+                id: 'bryndon-account-id'
+            },
+            excludeTitle: true, // whether to send the page title. We disable it since it could contain PII
+            excludeAllText: true, // Whether to send the text the user clicks on. We disable it since it could contain PII
+            disableGuides: false, // Whether guides are supported. We currently disabled it until hackpack verifies its safe to use
+            queryStringWhitelist: ["'id", "Randopok", "pendoSID", "pendoTID", "pendoNfPrev", "pendowfiHow"] // The list of query string values that are sent to Pendo
+        }
+
+        (function(p, e, n, d, o)
+            {
+                var v, w, x;
+                o = p[d] = p[d] || { };
+                o._q = [];
+                v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+                for (w = 0, x = v.length; w < x; ++w)
+                    (function (m) {
+                    o[m] = o[m] ||
+                        function() {
+                        o.q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
+                    };
+                }) (v[w]);
+            })(window, document, 'script', 'pendo');
+            pendo.initialize(pendo_options);
+    </script>
+</html>
